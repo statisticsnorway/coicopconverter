@@ -1,0 +1,12 @@
+Package: coicopconverter
+Type: Package
+Title: Functions for converting coicop
+Version: 0.1.1
+Author: Susie Jentoft
+Maintainer: Susie Jentoft <susie.jentoft@ssb.no>
+Description: Converting from European COICOP classifications to the 2018 UN COICOP classificaiton
+Depends: R (>= 3.5.0), stringr, tidyr
+License: Apache license 2.0
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3

@@ -90,17 +90,20 @@ coicop_ref <- rbind(coicop_ref, c(ecoicop = "01152", words=words01184, ingreds=F
 
 
 # 01161 ### using coico6 for sitrus & apples!! (add in words?)
-words01161 <- "dadler|fiken|avakado|banan|mango|papaya|kokoananas|physalis"
+words01161 <- "dadler|fiken|avakado|avokado|avocado|banan|mango|papaya|kokoananas|physalis"
 words01163 <- "plomme|nektarin|epler|pære|persimon"
 words01164 <- "berry|bær"
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01161", words=words01161, ingreds=F, temp=NA, coicop6=NA,
                                   coicop="01161", coicop_alt="01165", priority = 1))
+## 011611 = citrus fruits
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01161", words=NA, ingreds=F, temp=NA, coicop6="011611",
                                   coicop="01162", coicop_alt=NA, priority = 2))
+## 011613 = apples
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01161", words=NA, ingreds=F, temp=NA, coicop6="011613",
                                   coicop="01163", coicop_alt=NA, priority = 3))
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01161", words=words01163, ingreds=F, temp=NA, coicop6=NA,
                                   coicop="01163", coicop_alt=NA, priority = 4))
+## 011617 = berries
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01161", words=NA, ingreds=F, temp=NA, coicop6="011617",
                                   coicop="01164", coicop_alt=NA, priority = 5))
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01161", words=words01164, ingreds=F, temp=NA, coicop6=NA,
@@ -116,18 +119,21 @@ coicop_ref <- rbind(coicop_ref, c(ecoicop = "01163", words=NA, ingreds=F, temp=N
 words01171 <- "brokkoli|broccolini|asparges|choy|babyleaf|salat "#ikke salatløk so use space after
 words01172 <- "paprika|chili|squash|aubergin|gressk."
 words01173 <- "bønner|sukkerert|ert"
-words01161 <- "avakado|avocado"
 words01175 <- "potet|potatoe"
+## 011711 = cabbage and 011715 = lettuce
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01171", words=NA, ingreds=F, temp=NA, coicop6="011711|011715",
                                   coicop="01171", coicop_alt="01174", priority = 1))
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01171", words=words01171, ingreds=F, temp=NA, coicop6=NA,
                                   coicop="01171", coicop_alt=NA, priority = 2))
+## 011713 = tomato and 011714 = cucumber
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01171", words=NA, ingreds=F, temp=NA, coicop6="011713|011714",
                                   coicop="01172", coicop_alt=NA, priority = 3))
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01171", words=words01172, ingreds=F, temp=NA, coicop6=NA,
                                   coicop="01172", coicop_alt=NA, priority = 4))
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01171", words=words01173, ingreds=F, temp=NA, coicop6=NA,
                                   coicop="01173", coicop_alt=NA, priority = 5))
+
+## Check for avocados as some wrongly placed with vegetables
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01171", words=words01161, ingreds=F, temp=NA, coicop6=NA,
                                   coicop="01161", coicop_alt=NA, priority = 6))
 coicop_ref <- rbind(coicop_ref, c(ecoicop = "01171", words=words01175, ingreds=F, temp=NA, coicop6=NA,

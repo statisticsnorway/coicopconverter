@@ -2,11 +2,17 @@ Package: coicopconverter
 Type: Package
 Title: Functions for converting coicop
 Version: 0.1.1
-Author: Susie Jentoft
+Authors@R: 
+  c(person(given = "Susie",
+           family = "Jentoft",
+           role = c("aut", "cre"),
+           email = "susie.jentoft@ssb.no"),
+    person(given = "SSB",
+           role = "cph"))
 Maintainer: Susie Jentoft <susie.jentoft@ssb.no>
 Description: Converting from European COICOP classifications to the 2018 UN COICOP classificaiton
 Depends: R (>= 3.5.0), stringr, tidyr
-License: Apache license 2.0
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3

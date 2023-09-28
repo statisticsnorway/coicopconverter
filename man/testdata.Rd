@@ -6,7 +6,7 @@
 \title{Test data for food products
 Example data for using in testing and examples}
 \format{
-An object of class \code{matrix} with 5 rows and 6 columns.
+An object of class \code{matrix} (inherits from \code{array}) with 10 rows and 6 columns.
 }
 \usage{
 data(testdata)

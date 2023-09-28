@@ -1,2 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.github$
+create_convert_table.R
+create_testdata.R
+create_1_to_1_table.R

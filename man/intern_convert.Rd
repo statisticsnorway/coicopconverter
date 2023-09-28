@@ -28,11 +28,15 @@ intern_convert(
 
 \item{coicop6_test}{String with Coicop 6 group or groups to check for.}
 
+\item{makstemp}{Maximum temperature for storage (if available)}
+
 \item{makstemp_limit}{Maximum temperature to check for.}
 
 \item{varenavn}{String with the product name}
 
-\item{ingredients}{String with the list of ingredients (if available)}
+\item{ingredients}{string with list of ingredients}
+
+\item{ingredients_test}{Whether to check ingredients}
 }
 \value{
 String with new coicop group

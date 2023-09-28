@@ -1,3 +1,7 @@
+<!-- badges: start -->
+  [![R-CMD-check](https://github.com/statisticsnorway/coicopconverter/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/coicopconverter/actions/workflows/R-CMD-check.yaml)
+  <!-- badges: end -->
+
 # COICOP Converter
 
 This R package contains a function to convert a COICOP variable from the European COICOP standard to the newer 2018 UN COICOP.

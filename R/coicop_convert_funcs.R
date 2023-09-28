@@ -54,7 +54,10 @@ coicop_convert_single <- function(ecoicop, coi1, coicop_ref, varenavn=NULL,
 #' @param coicop_words String with words to identify in the product name
 #' @param coicop18 Vector of two: first is the COICOP to allocated given words,coicop 6,max temp found; second is the alternate.
 #' @param coicop6_test String with Coicop 6 group or groups to check for.
+#' @param makstemp Maximum temperature for storage (if available)
 #' @param makstemp_limit Maximum temperature to check for.
+#' @param ingredients string with list of ingredients
+#' @param ingredients_test Whether to check ingredients
 #' @inheritParams coicop_convert_single
 #'
 #' @return String with new coicop group
@@ -66,19 +69,19 @@ intern_convert <- function(coicop_words, ecoicop, coicop18,
 ){
   if (is.na(varenavn)){
     print("The product name is missing for some items")
-    varenavn <- " "
+    #varenavn <- " "
   }
   if (length(varenavn) > 1){
     varenavn <- paste(varenavn, collapse = " ")
-  }
-  if (is.na(varenavn)){
-    varenavn <- " "
   }
 
   # Check if words are in name variables
   if (is.na(coicop_words)){
     cond_words <- FALSE
   } else {
+    if (is.na(varenavn)){
+      cond_words <- FALSE
+    }
     cond_words <- stringr::str_detect(varenavn,
                              stringr::regex(paste(coicop_words, collapse = "|"),
                                    ignore_case = T))
@@ -136,8 +139,8 @@ coicop_convert <- function(data, ecoicop, varenavn=NULL, coicop6=NULL,
                            ingredients=NULL, maxtemp = NULL){
 
   # Load 1:1 coicop codes and coicop reference words and new coicop codes
-  data("coi1")
-  data("coicop_ref")
+  data("coi1", package = 'coicopconverter')
+  data("coicop_ref", package = 'coicopconverter')
 
   # Convert to data frame
   data <- data.frame(data)
@@ -167,7 +170,13 @@ coicop_convert <- function(data, ecoicop, varenavn=NULL, coicop6=NULL,
     varenavn_vec = data[, varenavn]
   }
 
-  maxtemp_vec = data[, maxtemp]
+  # IF no temperature variable is given, assume not frozen
+  # Temperature only currently used to split pasta that is actually pre-made frozen meal.
+  if (missing(maxtemp)){
+    maxtemp_vec <- rep(10, )
+  } else {
+    maxtemp_vec = data[, maxtemp]
+  }
 
   coicop <- rep(NA, nrow(data))
   for (j in 1:nrow(data)){

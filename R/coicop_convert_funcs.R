@@ -66,19 +66,19 @@ intern_convert <- function(coicop_words, ecoicop, coicop18,
 ){
   if (is.na(varenavn)){
     print("The product name is missing for some items")
-    varenavn <- " "
+    #varenavn <- " "
   }
   if (length(varenavn) > 1){
     varenavn <- paste(varenavn, collapse = " ")
-  }
-  if (is.na(varenavn)){
-    varenavn <- " "
   }
 
   # Check if words are in name variables
   if (is.na(coicop_words)){
     cond_words <- FALSE
   } else {
+    if (is.na(varenavn)){
+      cond_words <- FALSE
+    }
     cond_words <- stringr::str_detect(varenavn,
                              stringr::regex(paste(coicop_words, collapse = "|"),
                                    ignore_case = T))
@@ -167,7 +167,13 @@ coicop_convert <- function(data, ecoicop, varenavn=NULL, coicop6=NULL,
     varenavn_vec = data[, varenavn]
   }
 
-  maxtemp_vec = data[, maxtemp]
+  # IF no temperature variable is given, assume not frozen
+  # Temperature only currently used to split pasta that is actually pre-made frozen meal.
+  if (missing(maxtemp)){
+    maxtemp_vec <- rep(10, )
+  } else {
+    maxtemp_vec = data[, maxtemp]
+  }
 
   coicop <- rep(NA, nrow(data))
   for (j in 1:nrow(data)){
